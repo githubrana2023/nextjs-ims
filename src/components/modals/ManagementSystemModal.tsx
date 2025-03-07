@@ -1,5 +1,5 @@
 "use client";
-import { ManagementSystemForm } from "@/features/management-system/components/ManagementSystemForm";
+import { ManagementSystemForm } from "@/features/expense-management/management-system/components/ManagementSystemForm";
 import { Modal } from "@/components/Modal";
 import { useAppDispatch, useModal } from "@/hooks/redux";
 import { MODAL_TYPE, onClose } from "@/lib/redux/slices/modal-slice";

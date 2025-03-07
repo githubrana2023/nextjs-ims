@@ -2,10 +2,10 @@
 import { DEFAULT_BANK_NAME, DEFAULT_TRANSACTION_NAME } from '../constants';
 import { AssignBankFormValue, assignBankFormSchema } from '../schema';
 import { currentUser } from '@/services/clerk';
-import { getUserById } from '@/features/users/db/user';
-import { getManagementSystemByUserId } from '@/features/management-system/db/getManagementSystem';
-import { getTrxNameByIdAndManagementSystemId } from '@/features/trx-name/db/getTrxName';
-import { getBankAccountByIdAndManagementSystemId } from '@/features/bank-account/db/getBankAccount';
+import { getUserById } from '@/features/expense-management/users/db/user';
+import { getManagementSystemByUserId } from '@/features/expense-management/management-system/db/getManagementSystem';
+import { getTrxNameByIdAndManagementSystemId } from '@/features/expense-management/trx-name/db/getTrxName';
+import { getBankAccountByIdAndManagementSystemId } from '@/features/expense-management/bank-account/db/getBankAccount';
 import { assignBank, insertAssignReceiveBank, insertAssignSourceBank } from '../db/insert-assign-bank';
 
 import { getAssignedReceiveBank, getAssignedSourceBank } from '../db/get-assigned-bank';

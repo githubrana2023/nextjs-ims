@@ -1,8 +1,8 @@
 'use server'
 import { updateBankAccountFormSchema, UpdateBankAccountFormValue } from "../schemas/bank-account-schema";
 import { currentUser } from "@/services/clerk";
-import { getUserById } from "@/features/users/db/user";
-import { getManagementSystemByUserId } from "@/features/management-system/db/getManagementSystem";
+import { getUserById } from "@/features/expense-management/users/db/user";
+import { getManagementSystemByUserId } from "@/features/expense-management/management-system/db/getManagementSystem";
 import { getBankAccountByIdAndManagementSystemId, } from "../db/getBankAccount";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";

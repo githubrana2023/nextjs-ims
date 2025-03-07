@@ -1,8 +1,8 @@
 
 'use server'
 import { Id } from "@/data/types";
-import { getManagementSystemByUserId } from "@/features/management-system/db/getManagementSystem";
-import { getUserById } from "@/features/users/db/user";
+import { getManagementSystemByUserId } from "@/features/expense-management/management-system/db/getManagementSystem";
+import { getUserById } from "@/features/expense-management/users/db/user";
 import { currentUser } from "@/services/clerk";
 import { redirect } from "next/navigation";
 import { getBankAccountByIdAndManagementSystemId } from "../db/getBankAccount";

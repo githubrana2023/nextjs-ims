@@ -1,6 +1,6 @@
 "use client";
 
-import { assignBankAction } from "@/features/assign-bank/actions/assign";
+import { assignBankAction } from "@/features/expense-management/assign-bank/actions/assign";
 import { Button } from "@/components/ui/button";
 import {
   Form,

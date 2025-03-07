@@ -1,8 +1,8 @@
 'use server'
 import { bankAccountFormSchema, BankAccountFormValue } from "../schemas/bank-account-schema";
 import { currentUser } from "@/services/clerk";
-import { getUserById } from "@/features/users/db/user";
-import { getManagementSystemByUserId } from "@/features/management-system/db/getManagementSystem";
+import { getUserById } from "@/features/expense-management/users/db/user";
+import { getManagementSystemByUserId } from "@/features/expense-management/management-system/db/getManagementSystem";
 import { getBankAccountByManagementSystemIdAndName } from "../db/getBankAccount";
 import { db } from "@/drizzle/db";
 import { bankAccountDbTable } from "@/drizzle/schema";

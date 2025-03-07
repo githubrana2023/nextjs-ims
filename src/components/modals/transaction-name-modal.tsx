@@ -2,7 +2,7 @@ import React from "react";
 import { Modal } from "@/components/Modal";
 import { useAppDispatch, useModal } from "@/hooks/redux";
 import { MODAL_TYPE, onClose } from "@/lib/redux/slices/modal-slice";
-import { TransactionNameForm } from "@/features/trx-name/components/TrxNameForm";
+import { TransactionNameForm } from "@/features/expense-management/trx-name/components/TrxNameForm";
 
 export const TransactionNameModal = () => {
   const dispatch = useAppDispatch();

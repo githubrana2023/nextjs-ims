@@ -6,10 +6,8 @@
  */
 
 export const publicRoutes = [
-    '/',
     '/auth/new-verification',
     '/api',
-    '/cart'
 ]
 
 /**
@@ -19,8 +17,8 @@ export const publicRoutes = [
 */
 
 export const authRoutes = [
-    '/auth/login',
-    '/auth/register',
+    '/auth/sign-up',
+    '/auth/sign-in',
     '/auth/error',
     '/auth/new-password',
     '/auth/reset',
@@ -40,8 +38,3 @@ export const apiAuthPrefix = '/api/auth'
  */
 export const DEFAULT_LOGIN_REDIRECT = '/settings'
 
-
-export const ownerRoutes = [
-    /^\/[^\/]+\/categories\/[^\/]+$/,
-    /^\/[^\/]+\/products\/[^\/]+$/
-]

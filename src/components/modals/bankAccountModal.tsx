@@ -2,7 +2,7 @@
 import { Modal } from "@/components/Modal";
 import { useAppDispatch, useModal } from "@/hooks/redux";
 import { MODAL_TYPE, onClose } from "@/lib/redux/slices/modal-slice";
-import { BankAccountForm } from "@/features/bank-account/components/BankAccountForm";
+import { BankAccountForm } from "@/features/expense-management/bank-account/components/BankAccountForm";
 
 export const BankAccountModal = () => {
   const dispatch = useAppDispatch();

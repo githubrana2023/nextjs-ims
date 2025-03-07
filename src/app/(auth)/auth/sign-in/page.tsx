@@ -4,7 +4,9 @@ function SignInPage() {
 
 
     return (
-        <SignInForm />
+        <div className="max-h-96">
+            <SignInForm />
+        </div>
     )
 }
 

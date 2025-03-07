@@ -2,12 +2,12 @@
 
 import { trxFormSchema, TrxFormValue } from "../schemas/create"
 import { currentUser } from "@/services/clerk"
-import { getUserByClerkId } from "@/features/users/db/user"
-import { getManagementSystemByIdAndUserId } from "@/features/management-system/db/getManagementSystem"
-import { getTrxNameById } from "@/features/trx-name/db/getTrxName"
-import { getBankAccountByIdAndManagementSystemId } from "@/features/bank-account/db/getBankAccount"
-import { insertBankTransactionForBoth, insertBankTransactionForReceive, insertBankTransactionForSource } from "@/features/bank-transaction/insert-bank-transaction"
-import { addReceiveBankAccountBalanceWithPgTrx, reduceSourceBankAccountBalanceWithPgTrx } from "@/features/bank-account/db/updateBankAccount"
+import { getUserByClerkId } from "@/features/expense-management/users/db/user"
+import { getManagementSystemByIdAndUserId } from "@/features/expense-management/management-system/db/getManagementSystem"
+import { getTrxNameById } from "@/features/expense-management/trx-name/db/getTrxName"
+import { getBankAccountByIdAndManagementSystemId } from "@/features/expense-management/bank-account/db/getBankAccount"
+import { insertBankTransactionForBoth, insertBankTransactionForReceive, insertBankTransactionForSource } from "@/features/expense-management/bank-transaction/insert-bank-transaction"
+import { addReceiveBankAccountBalanceWithPgTrx, reduceSourceBankAccountBalanceWithPgTrx } from "@/features/expense-management/bank-account/db/updateBankAccount"
 import { createTrx } from "../db/create-trx"
 import { revalidatePath } from "next/cache"
 

@@ -20,20 +20,19 @@ export default auth(async function middleware(req) {
 
 
 
-    // if (isApiAuthRoute) {
-    //     return
-    // }
+    if (isApiAuthRoute) {
+        return
+    }
 
-    // if (isAuthRoute) {
-    //     if (isLoggedIn) {
-
-    //         return Response.redirect(new URL(`/owner`, nextUrl))
-    //     }
-    //     return
-    // }
-    // if (!isLoggedIn && !isPublicRoute) {
-    //     return Response.redirect(new URL('/auth/login', nextUrl))
-    // }
+    if (isAuthRoute) {
+        if (isLoggedIn) {
+            return Response.redirect(new URL(`/`, nextUrl))
+        }
+        return
+    }
+    if (!isLoggedIn && !isPublicRoute) {
+        return Response.redirect(new URL('/auth/sign-up', nextUrl))
+    }
     return
 })
 
