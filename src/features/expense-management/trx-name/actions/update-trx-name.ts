@@ -1,7 +1,7 @@
 'use server'
 
 import { updateTrxNameFormSchema, UpdateTrxNameFormValue } from "../schemas/transaction-name"
-import { currentUser } from "@/services/clerk"
+import { currentUser } from "@/services/auth"
 import { getUserById } from "@/features/expense-management/users/db/user"
 import { getManagementSystemByUserId } from "@/features/expense-management/management-system/db/getManagementSystem"
 import { getTrxNameByIdAndManagementSystemId, getTrxNameByManagementIdTrxName } from "../db/getTrxName"

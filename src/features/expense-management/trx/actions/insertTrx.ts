@@ -1,7 +1,7 @@
 'use server'
 
 import { trxFormSchema, TrxFormValue } from "../schemas/create"
-import { currentUser } from "@/services/clerk"
+import { currentUser } from "@/services/auth"
 import { getUserByClerkId } from "@/features/expense-management/users/db/user"
 import { getManagementSystemByIdAndUserId } from "@/features/expense-management/management-system/db/getManagementSystem"
 import { getTrxNameById } from "@/features/expense-management/trx-name/db/getTrxName"

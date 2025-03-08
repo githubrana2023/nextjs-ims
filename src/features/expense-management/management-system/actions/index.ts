@@ -1,7 +1,7 @@
 'use server'
 import { ManagementSystemFormValue } from "../schema"
 import { getUserById } from "@/features/expense-management/users/db/user"
-import { currentUser } from "@/services/clerk"
+import { currentUser } from "@/services/auth"
 import { getManagementSystemByUserId } from "../db/getManagementSystem"
 import { db } from "@/drizzle/db"
 import { managementSystemDbTable } from "@/drizzle/schema"

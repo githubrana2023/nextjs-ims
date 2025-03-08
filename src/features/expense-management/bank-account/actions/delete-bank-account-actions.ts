@@ -3,7 +3,7 @@
 import { Id } from "@/data/types";
 import { getManagementSystemByUserId } from "@/features/expense-management/management-system/db/getManagementSystem";
 import { getUserById } from "@/features/expense-management/users/db/user";
-import { currentUser } from "@/services/clerk";
+import { currentUser } from "@/services/auth";
 import { redirect } from "next/navigation";
 import { getBankAccountByIdAndManagementSystemId } from "../db/getBankAccount";
 import { revalidatePath } from "next/cache";

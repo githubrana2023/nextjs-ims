@@ -1,7 +1,7 @@
 'use server'
 import { DEFAULT_BANK_NAME, DEFAULT_TRANSACTION_NAME } from '../constants';
 import { AssignBankFormValue, assignBankFormSchema } from '../schema';
-import { currentUser } from '@/services/clerk';
+import { currentUser } from '@/services/auth';
 import { getUserById } from '@/features/expense-management/users/db/user';
 import { getManagementSystemByUserId } from '@/features/expense-management/management-system/db/getManagementSystem';
 import { getTrxNameByIdAndManagementSystemId } from '@/features/expense-management/trx-name/db/getTrxName';

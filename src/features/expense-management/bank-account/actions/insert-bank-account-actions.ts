@@ -1,6 +1,6 @@
 'use server'
 import { bankAccountFormSchema, BankAccountFormValue } from "../schemas/bank-account-schema";
-import { currentUser } from "@/services/clerk";
+import { currentUser } from "@/services/auth";
 import { getUserById } from "@/features/expense-management/users/db/user";
 import { getManagementSystemByUserId } from "@/features/expense-management/management-system/db/getManagementSystem";
 import { getBankAccountByManagementSystemIdAndName } from "../db/getBankAccount";

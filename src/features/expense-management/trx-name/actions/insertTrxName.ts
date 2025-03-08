@@ -1,6 +1,6 @@
 'use server'
 import { transactionNameFormSchema, TransactionNameFormValue } from "../schemas/transaction-name";
-import { currentUser } from "@/services/clerk";
+import { currentUser } from "@/services/auth";
 import { getManagementSystemByUserId } from "@/features/expense-management/management-system/db/getManagementSystem";
 import { getTrxNameByManagementIdTrxName } from "../db/getTrxName";
 import { db } from "@/drizzle/db";
