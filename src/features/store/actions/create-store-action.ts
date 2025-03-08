@@ -1,7 +1,7 @@
 import { _log, sendRespose } from "@/lib/helper/send-response";
 import { currentUser } from "@/services/auth";
 import { storeFormSchema, StoreFormValue } from "../schema";
-import { getStoreByStoreCode, getStoreByUserId } from "@/features/user/db";
+import { getStoreByStoreCode, getStoreByUserId } from "@/features/store/db";
 import { db } from "@/drizzle/db";
 import { storesTable, usersTable } from "@/drizzle/schema";
 import { eq } from "drizzle-orm";
