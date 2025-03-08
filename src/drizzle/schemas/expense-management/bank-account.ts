@@ -1,5 +1,5 @@
 import { numeric, pgTable, uuid, varchar } from "drizzle-orm/pg-core";
-import { createdAt, updatedAt } from "../schema-helper";
+import { createdAt, updatedAt } from "@/drizzle/schema-helper";
 import { managementSystemDbTable } from "./management-system";
 import { relations } from "drizzle-orm";
 import { assignSourceBankToTransactionNameDbTable } from "./assign-source-bank";

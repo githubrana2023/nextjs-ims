@@ -1,5 +1,5 @@
 import { pgTable, uuid, varchar } from "drizzle-orm/pg-core";
-import { createdAt, updatedAt } from "../schema-helper";
+import { createdAt, updatedAt } from "@/drizzle/schema-helper";
 import { relations } from "drizzle-orm";
 import { userDbTable } from "./user";
 import { transactionNameDbTable } from "./transaction-name";
