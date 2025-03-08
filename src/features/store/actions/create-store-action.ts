@@ -1,3 +1,4 @@
+'use server'
 import { _log, sendRespose } from "@/lib/helper/send-response";
 import { currentUser } from "@/services/auth";
 import { storeFormSchema, StoreFormValue } from "../schema";
