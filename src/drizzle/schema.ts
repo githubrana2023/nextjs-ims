@@ -15,4 +15,6 @@ export * from './schemas/sales-product'
 export * from './schemas/sales-product-paid-bill'
 export * from './schemas/sales-return'
 export * from './schemas/sales-return-product'
+export * from './schemas/expense-category'
+export * from './schemas/expense'
 
