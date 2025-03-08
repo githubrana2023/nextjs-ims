@@ -3,6 +3,7 @@ import {relations} from "drizzle-orm"
 import { storesTable } from "./store";
 import { salesTable } from "./sales";
 import { productsTable } from "./product";
+import { salesReturnProductsTable } from "./sales-return-product";
 // Sales Product Table
 export const salesProductsTable = pgTable("sales_products", {
     id: uuid("id").primaryKey().defaultRandom(),
@@ -16,3 +17,21 @@ export const salesProductsTable = pgTable("sales_products", {
     createdAt: timestamp("created_at").defaultNow().notNull(),
     updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
+
+
+
+export const salesProductsTableRelation = relations(salesProductsTable,({one,many})=>({
+    store:one(storesTable,{
+        fields:[salesProductsTable.storeId],
+        references:[storesTable.id]
+    }),
+    sale:one(salesTable,{
+        fields:[salesProductsTable.salesId],
+        references:[salesTable.id]
+    }),
+    product:one(productsTable,{
+        fields:[salesProductsTable.productId],
+        references:[productsTable.id]
+    }),
+    salesReturnProducts:many(salesReturnProductsTable),
+}))

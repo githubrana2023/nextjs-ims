@@ -15,7 +15,6 @@ export const productPackingsTable = pgTable("product_packings", {
 
 // Product Table relation 
 export const productPackingsRelation = relations(productPackingsTable, ({
-    one,
     many
 }) => ({
     assignProductPackings:many(assignProductPackingsTable)

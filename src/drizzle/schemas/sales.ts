@@ -3,6 +3,7 @@ import {relations} from "drizzle-orm"
 import { customersTable } from "./customer";
 import { storesTable } from "./store";
 import { salesProductsTable } from "./sales-product";
+import { salesReturnTable } from "./sales-return";
 // Sales Table
 export const salesTable = pgTable("sales", {
     id: uuid("id").primaryKey().defaultRandom(),
@@ -19,5 +20,14 @@ export const salesTable = pgTable("sales", {
 
 
 export const salesRelations = relations(salesTable,({one,many})=>({
-    salesProducts: many(salesProductsTable)
+    customer:one(customersTable,{
+        fields:[salesTable.customerId],
+        references:[customersTable.id]
+    }),
+    store:one(storesTable,{
+        fields:[salesTable.customerId],
+        references:[storesTable.id]
+    }),
+    salesProducts: many(salesProductsTable),
+    salesReturns: many(salesReturnTable),
 }))

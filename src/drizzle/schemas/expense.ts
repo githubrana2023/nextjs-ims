@@ -12,3 +12,14 @@ export const expensesTable = pgTable("expenses", {
     expenseDate: timestamp("expense_date").defaultNow().notNull(),
     createdAt: timestamp("created_at").defaultNow().notNull(),
 });
+
+export const expensesTableRelation = relations(expensesTable,({one,many})=>({
+    store:one(storesTable,{
+        fields:[expensesTable.storeId],
+        references:[storesTable.id]
+    }),
+    expenseCategory:one(expenseCategoriesTable,{
+        fields:[expensesTable.expenseCategoryId],
+        references:[expenseCategoriesTable.id]
+    }),
+}))

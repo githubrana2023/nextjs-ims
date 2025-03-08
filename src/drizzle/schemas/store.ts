@@ -7,6 +7,12 @@ import { productsTable } from "./product";
 import { productCategoriesTable } from "./product-category";
 import { salesTable } from "./sales";
 import { purchasesTable } from "./purchase";
+import { expenseCategoriesTable } from "./expense-category";
+import { expensesTable } from "./expense";
+import { purchasePaidBillsTable } from "./purchase-product-paid-bill";
+import { salesPaidBillsTable } from "./sales-product-paid-bill";
+import { salesProductsTable } from "./sales-product";
+import { salesReturnTable } from "./sales-return";
 // Store Table
 export const storesTable = pgTable("stores", {
     id: uuid("id").primaryKey().defaultRandom(),
@@ -23,7 +29,7 @@ export const storesRelation = relations(storesTable, ({
     one,
     many
 }) => ({
-    store: one(usersTable, {
+    onwer: one(usersTable, {
         fields: [storesTable.userId],
         references:[usersTable.id]
     }),
@@ -31,6 +37,12 @@ export const storesRelation = relations(storesTable, ({
     customers:many(customersTable),
     products:many(productsTable),
     productCategories:many(productCategoriesTable),
+    purchasePaidBills:many(purchasePaidBillsTable),
     sales:many(salesTable),
+    salesBillCollections:many(salesPaidBillsTable),
+    salesProducts:many(salesProductsTable),
+    salesReturns:many(salesReturnTable),
     purchases:many(purchasesTable),
+    expenseCategories:many(expenseCategoriesTable),
+    expenses:many(expensesTable),
 }))

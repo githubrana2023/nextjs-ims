@@ -1,5 +1,5 @@
-import { pgTable, varchar, uuid, numeric, timestamp, boolean ,text } from "drizzle-orm/pg-core";
-import {relations} from "drizzle-orm"
+import { pgTable, varchar, uuid, numeric, timestamp, boolean, text } from "drizzle-orm/pg-core";
+import { relations } from "drizzle-orm"
 import { suppliersTable } from "./supplier";
 import { storesTable } from "./store";
 import { purchaseProductsTable } from "./purchase-product";
@@ -18,6 +18,14 @@ export const purchasesTable = pgTable("purchases", {
 });
 
 // Purchase Table Relation
-export const purchasesRelation = relations(purchasesTable,({one,many})=>({
-    purchaseProducts : many(purchaseProductsTable)
+export const purchasesRelation = relations(purchasesTable, ({ one, many }) => ({
+    store: one(storesTable, {
+        fields: [purchasesTable.storeId],
+        references: [storesTable.id]
+    }),
+    supplier: one(suppliersTable, {
+        fields: [purchasesTable.storeId],
+        references: [suppliersTable.id]
+    }),
+    purchaseProducts: many(purchaseProductsTable)
 }))

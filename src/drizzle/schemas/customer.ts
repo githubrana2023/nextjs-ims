@@ -2,6 +2,8 @@ import { pgTable, varchar, uuid, numeric, timestamp, boolean } from "drizzle-orm
 import {relations} from "drizzle-orm"
 import { storesTable } from "./store";
 import { salesTable } from "./sales";
+import { salesPaidBillsTable } from "./sales-product-paid-bill";
+import { salesReturnTable } from "./sales-return";
 
 
 // Customer Table
@@ -27,4 +29,6 @@ export const customersRelation = relations(customersTable, ({
         references: [storesTable.id],
     }),
     purchases: many(salesTable),
+    purchasePaidBills:many(salesPaidBillsTable),
+    salesReturns:many(salesReturnTable),
 }))
