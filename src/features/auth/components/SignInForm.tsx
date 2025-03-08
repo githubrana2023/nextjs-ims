@@ -74,17 +74,8 @@ export const SignInForm = () => {
           />
           <Button type="submit" disabled={isPending} className='w-full'>Sing Up</Button>
         </form>
-        <Separator/>
-        <div>
-          Don't have account? <Link href={'/auth/sign-up'} className='font-semibold'>Sign Up</Link>
-        </div>
-        <div>
-          Don't have account? <Link href={'/auth/sign-up'} className='font-semibold'>Sign Up</Link>
-        </div>
-        <div>
-          Don't have account? <Link href={'/auth/sign-up'} className='font-semibold'>Sign Up</Link>
-        </div>
-        <div>
+        <Separator className='my-2' />
+        <div className='w-full flex items-center justify-center gap-2'>
           Don't have account? <Link href={'/auth/sign-up'} className='font-semibold'>Sign Up</Link>
         </div>
       </Form>

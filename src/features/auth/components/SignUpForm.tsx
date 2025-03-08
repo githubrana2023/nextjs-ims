@@ -1,10 +1,12 @@
 'use client'
+import Link from 'next/link'
 import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
 import {
     Form,
     FormField,
@@ -26,7 +28,7 @@ export const SignUpForm = () => {
             name: "",
             email: "",
             password: "",
-            confirmPassword:""
+            confirmPassword: ""
         }
     })
 
@@ -100,6 +102,10 @@ export const SignUpForm = () => {
                     />
                     <Button type="submit" disabled={isPending} className='w-full'>Sing Up</Button>
                 </form>
+                <Separator className='my-2' />
+                <div className='w-full flex items-center justify-center gap-2'>
+                    Don't have account? <Link href={'/auth/sign-in'} className='font-semibold'>Sign In</Link>
+                </div>
             </Form>
         </CardWrapper>
     )
