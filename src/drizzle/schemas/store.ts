@@ -1,6 +1,12 @@
 import { pgTable, varchar, uuid, timestamp, boolean} from "drizzle-orm/pg-core";
 import {relations} from "drizzle-orm"
 import { usersTable } from "./user";
+import { suppliersTable } from "./supplier";
+import { customersTable } from "./customer";
+import { productsTable } from "./product";
+import { productCategoriesTable } from "./product-category";
+import { salesTable } from "./sales";
+import { purchasesTable } from "./purchase";
 // Store Table
 export const storesTable = pgTable("stores", {
     id: uuid("id").primaryKey().defaultRandom(),
@@ -21,10 +27,10 @@ export const storesRelation = relations(storesTable, ({
         fields: [storesTable.userId],
         references:[usersTable.id]
     }),
-    // suppliers:many(suppliers),
-    // customers:many(customers),
-    // products:many(products),
-    // productCategories:many(productCategories),
-    // sales:many(sales),
-    // purchases:many(purchases),
+    suppliers:many(suppliersTable),
+    customers:many(customersTable),
+    products:many(productsTable),
+    productCategories:many(productCategoriesTable),
+    sales:many(salesTable),
+    purchases:many(purchasesTable),
 }))
