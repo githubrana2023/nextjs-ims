@@ -24,7 +24,7 @@ export const customersRelation = relations(customersTable, ({
 }) => ({
     store: one(storesTable, {
         fields: [customersTable.storeId],
-        references: [storesTable.id]
+        references: [storesTable.id],
     }),
     purchases: many(salesTable),
 }))
