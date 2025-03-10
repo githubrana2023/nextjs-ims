@@ -9,7 +9,7 @@ export const usersTable = pgTable("users", {
     name: varchar("name", { length: 255 }).notNull(),
     email: varchar("email", { length: 255 }).notNull().unique(),
     password: varchar("password", { length: 255 }).notNull(),
-    role: varchar("role", { enum: userRoles }).default("OWNER"),
+    role: varchar("role", { enum: userRoles }).default("OWNER").notNull(),
     createdAt: timestamp("created_at").defaultNow().notNull(),
     updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
