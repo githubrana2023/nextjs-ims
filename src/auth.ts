@@ -15,8 +15,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         async signIn(params) {
             return true
         },
-        async jwt(params) {
-            const { token, user } = params
+        async jwt({ token}) {
             if (!token || !token.sub) return token;
 
             const existUser = await getUserById(token.sub)
@@ -28,15 +27,14 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
 
             return token
         },
-        async session(params) {
-            const { token, session } = params
+        async session({ token, session }) {
 
             if (session.user) {
                 session.user.email = token.email
                 session.user.role = token.role
                 session.user.id = token.id
             }
-            
+
             return session
         },
     }
