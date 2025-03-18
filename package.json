@@ -6,7 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate": "yarn drizzle-kit migrate",
+    "generate": "yarn drizzle-kit generate",
+    "studio": "yarn drizzle-kit migrate"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.12.5",
