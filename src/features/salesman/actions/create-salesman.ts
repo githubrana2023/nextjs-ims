@@ -29,9 +29,6 @@ export const createSalesmanActionWithAuth = withAuthCreateAction(createSalesmanF
                 
             if (nid && await getSalesmanByNidAndSupplierId(nid, existSupplier.id)) return sendResponse(false, null, 'Salesmane nid already taken!')
 
-
-
-
             const [newSalesman] = await db
                 .insert(salesMansTable)
                 .values(payload)

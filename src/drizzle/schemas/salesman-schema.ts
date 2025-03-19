@@ -8,9 +8,9 @@ export const salesMansTable = pgTable("sales_mans", {
     id: uuid("id").primaryKey().defaultRandom().unique(),
     supplierId: uuid("supplier_id").notNull().references(() => suppliersTable.id, { onDelete: "cascade" }),
     name: varchar("name", { length: 255 }).notNull(),
-    phone: varchar("phone", { length: 20 }).notNull().unique(),
-    nid: varchar("nid", { length: 50 }).unique(),
-    email: varchar("email", { length: 255 }).unique(),
+    phone: varchar("phone", { length: 20 }).notNull(),
+    nid: varchar("nid", { length: 50 }),
+    email: varchar("email", { length: 255 }),
     createdAt,
     updatedAt,
 });
