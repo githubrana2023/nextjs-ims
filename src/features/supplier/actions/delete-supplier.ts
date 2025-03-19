@@ -1,12 +1,13 @@
-import { withAuthDeleteAction, WithAuthDeleteActionType } from "@/data/with-auth-action";
-import { getStoreByIdAndUserId } from "@/features/store/db";
-import { _log, sendResponse } from "@/lib/helper";
-import { getSupplierByIdAndStoreId } from "../db";
-import { db } from "@/drizzle/db";
-import { suppliersTable } from "@/drizzle/schema";
 import { and, eq } from "drizzle-orm";
 
-const fn: WithAuthDeleteActionType = async (supplierId, currentStoreId, userId) => {
+import { db } from "@/drizzle/db";
+import { suppliersTable } from "@/drizzle/schema";
+import { getSupplierByIdAndStoreId } from "../db";
+import { _log, sendResponse } from "@/lib/helper";
+import { getStoreByIdAndUserId } from "@/features/store/db";
+import { withAuthDeleteAction, WithAuthDeleteActionArgType } from "@/data/with-auth-action";
+
+const fn: WithAuthDeleteActionArgType = async (supplierId, currentStoreId, userId) => {
     try {
         const existStoreUnderUser = await getStoreByIdAndUserId(currentStoreId, userId);
 

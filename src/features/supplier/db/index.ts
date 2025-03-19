@@ -5,7 +5,10 @@ import { suppliersTable } from "@/drizzle/schema";
 
 export const getSupplierByStoreId = async (storeId: string) => {
     return await db.query.suppliersTable.findFirst({
-        where: eq(suppliersTable.storeId, storeId),
+        where: and(
+            eq(suppliersTable.storeId, storeId),
+            eq(suppliersTable.isDeleted, false),
+        )
     });
 };
 export const getSupplierById = async (id: string) => {

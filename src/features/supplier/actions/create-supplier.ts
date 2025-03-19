@@ -9,12 +9,13 @@ import { db } from '@/drizzle/db'
 import { withAuthCreateAction } from '@/data/with-auth-action';
 
 
-export const createSupplierActionWithAuth = withAuthCreateAction(
+
+
+export const createSupplierActionWithAuth = withAuthCreateAction(createSupplierFormSchema,
   async (formValue, userId) => {
     try {
-      const validation = createSupplierFormSchema.safeParse(formValue)
-      if (!validation.success) return sendResponse(false, null, 'Invalid Fields!')
-      const { name, storeId, supplierCode } = validation.data
+
+      const { name, storeId, supplierCode } = formValue
 
       const existStoreUnderUser = await getStoreByIdAndUserId(storeId, userId);
       if (!existStoreUnderUser)
@@ -43,7 +44,7 @@ export const createSupplierActionWithAuth = withAuthCreateAction(
 
       const [newSupplier] = await db
         .insert(suppliersTable)
-        .values(validation.data)
+        .values(formValue)
         .returning();
       if (!newSupplier)
         return sendResponse(false, null, "Failed to create Supplier!");
