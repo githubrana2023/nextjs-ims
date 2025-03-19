@@ -14,7 +14,11 @@ export const getStoreById = async (id: string) => {
 };
 export const getStoreByIdAndUserId = async (id: string, userId: string) => {
     return await db.query.storesTable.findFirst({
-        where: and(eq(storesTable.id, id), eq(storesTable.clerkUserId, userId)),
+        where: and(
+            eq(storesTable.id, id),
+             eq(storesTable.clerkUserId, userId),
+             eq(storesTable.isDeleted, false),
+            ),
     });
 };
 export const getStoreByStoreCode = async (storeCode: string) => {
