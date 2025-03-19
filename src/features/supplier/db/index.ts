@@ -26,6 +26,7 @@ export const getSupplierBySupplierCodeAndStoreId = async (
         where: and(
             eq(suppliersTable.supplierCode, supplierCode),
             eq(suppliersTable.storeId, storeId),
+            eq(suppliersTable.isDeleted, false),
         ),
     });
 };
@@ -37,6 +38,7 @@ export const getSupplierBySupplierNameAndStoreId = async (
         where: and(
             eq(suppliersTable.name, supplierName),
             eq(suppliersTable.storeId, storeId),
+            eq(suppliersTable.isDeleted, false),
         ),
     });
 };
@@ -45,6 +47,7 @@ export const getSupplierByIdAndStoreId = async (id: string, storeId: string) => 
         where: and(
             eq(suppliersTable.id, id),
             eq(suppliersTable.storeId, storeId),
+            eq(suppliersTable.isDeleted, false),
         ),
     });
 };
