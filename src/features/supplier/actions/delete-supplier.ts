@@ -7,13 +7,13 @@ import { _log, sendResponse } from "@/lib/helper";
 import { getStoreByIdAndUserId } from "@/features/store/db";
 import { withAuthDeleteAction, WithAuthDeleteActionArgType } from "@/data/with-auth-action";
 
-const fn: WithAuthDeleteActionArgType = async (supplierId, currentStoreId, userId) => {
+const fn: WithAuthDeleteActionArgType = async ({ id, currentStoreId, userId }) => {
     try {
         const existStoreUnderUser = await getStoreByIdAndUserId(currentStoreId, userId);
 
         if (!existStoreUnderUser) return sendResponse(false, null, 'Forbidden Access!')
 
-        const existSupplierUnderStore = await getSupplierByIdAndStoreId(supplierId, existStoreUnderUser.id)
+        const existSupplierUnderStore = await getSupplierByIdAndStoreId(id, existStoreUnderUser.id)
 
         if (!existSupplierUnderStore) return sendResponse(false, null, 'Supplier does not exist under your store!')
 

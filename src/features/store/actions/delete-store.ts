@@ -9,7 +9,7 @@ import { _log, sendResponse } from "@/lib/helper"
 import { withAuthDeleteAction } from "@/data/with-auth-action";
 
 export const deleteStoreActionWithAuth = withAuthDeleteAction(
-  async (id, currentStoreId, userId) => {
+  async ({id, currentStoreId, userId}) => {
     try {
 
       const existStoreUnderUser = await getStoreByIdAndUserId(id || currentStoreId, userId);

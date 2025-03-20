@@ -13,7 +13,7 @@ export const withAuthCreateAction = <T, TData = unknown>(
 
         const validation = schema.safeParse(formValue)
         if (!validation.success) return sendResponse(false, null, 'Invalid Fields!')
-            
+
         return await fn(formValue, userId)
     }
 }
@@ -43,12 +43,22 @@ export const withAuthUpdateAction = <T, TData = unknown>(
 
 
 export const withAuthDeleteAction = <TData>(
-    fn: (id: string, currentStoreId: string, userId: string) => Promise<ReturnType<typeof sendResponse<TData>>>
+    fn: ({
+        id,
+        currentStoreId,
+        userId
+    }: {
+        id: string,
+        currentStoreId: string,
+        userId: string
+    }) => Promise<ReturnType<typeof sendResponse<TData>>>
 ) => {
     return async (id: string, currentStoreId: string) => {
         const { userId } = await auth()
+
         if (!userId) return sendResponse(false, null, 'Unauthenticated Access!')
-        return await fn(id, currentStoreId, userId)
+
+        return await fn({ id, currentStoreId, userId })
     }
 }
 
